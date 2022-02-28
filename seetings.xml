@@ -1,0 +1,9 @@
+ <servers>
+    <server>
+        <id>Test</id>
+        <username>admin</username>
+        <password>admin</password>
+<filePermissions>664</filePermissions>
+<directoryPermissions>775</directoryPermissions>
+    </server>
+    </servers>
