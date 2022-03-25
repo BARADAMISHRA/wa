@@ -8,11 +8,19 @@
       <id>central</id>
     </server>
     <server>
-      <username>${security.getCurrentUsername()}</username>
-      <password>${security.getEscapedEncryptedPassword()!"*** Insert encrypted password here ***"}</password>
+      <username>lipunmishra093@gmail.com</username>
+      <password>AKCp8krKqQgJikLebG2xy6BLhHu7PM1yfouPAiKPb2BxPqmnhmvFRyQLK3Q8FNNn3Mazd3kmV</password>
       <id>snapshots</id>
     </server>
   </servers>
+  <mirrors>
+    <mirror>
+      <mirrorOf>*</mirrorOf>
+      <name>covido-libs-snapshot</name>
+      <url>https://mlipuns.jfrog.io/artifactory/covido-libs-snapshot</url>
+      <id>covido-libs-snapshot</id>
+    </mirror>
+  </mirrors>
   <profiles>
     <profile>
       <repositories>
