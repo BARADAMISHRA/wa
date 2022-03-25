@@ -42,19 +42,18 @@
                         <scope>test</scope>
                 </dependency>
         </dependencies>
-  <distributionManagement>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>a0ekbdvpdsvtv-artifactory-primary-0-snapshots</name>
-        <url>https://mlipuns.jfrog.io/artifactory/lmavan-libs-snapshot-local</url>
-    </snapshotRepository>
-     <repository>
+<distributionManagement>
+    <repository>
         <id>central</id>
         <name>a0ekbdvpdsvtv-artifactory-primary-0-releases</name>
-        <url>https://mlipuns.jfrog.io/artifactory/lmavan-libs-release-local</url>
+        <url>https://mlipuns.jfrog.io/artifactory/covido-libs-release</url>
     </repository>
+         <snapshotRepository>
+        <id>snapshots</id>
+        <name>a0ekbdvpdsvtv-artifactory-primary-0-snapshots</name>
+        <url>https://mlipuns.jfrog.io/artifactory/covido-libs-snapshot</url>
+    </snapshotRepository>
 </distributionManagement>
-
 
         <build>
                 <plugins>
