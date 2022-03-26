@@ -1,0 +1,12 @@
+## @formatter:off
+## JFROG ARTIFACTORY SYSTEM CONFIGURATION FILE
+## HOW TO USE: comment-out any field and keep the correct yaml indentation by deleting only the leading '#' character.
+configVersion: 1
+artifactory:
+  port:9091
+router:
+  entrypoints:
+      externalPort: 9092
+shared:
+   user: artifactory
+   group: artifactory
