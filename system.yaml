@@ -5,8 +5,6 @@ configVersion: 1
 artifactory:
      port:9091
 router:
-  entryPoints:
-      externalPort: 9092
-shared:
-   user: artifactory
-   group: artifactory
+    entrypoints:
+        externalPort: 9092
+
