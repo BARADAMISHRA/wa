@@ -1,0 +1,53 @@
+- name: apache2 site configuration playbook
+  hosts: javaserver
+  vars_files:
+     - site.yaml
+  tasks:
+    - name:  install apache2 server
+      apt:
+       name: apache2
+       update_cache: yes
+       state: present
+      become: yes
+      when: ansible_facts['distribution'] == 'Ubuntu'
+
+    - name: create hosting directory
+      file:
+        path: /var/www/"{{site.hosting_Directory}}"
+        state: directory
+        chmod: 755
+        owner: sriman
+        group: sriman
+      become: yes
+      become_method: yes
+    - name: copy sites into hosting direcory
+      copy:
+        src: www/*.html
+        dest: /var/www/"{{hosting_Directory}}"
+        mode: 655
+        owner: sriman
+        group: sriman
+    - name: create apache2 host configuration file
+      template:
+          src: apache2.conf.j2
+          dest: /var/www/"{{sites.hosting_Directory}}/{{site.site_name}}.conf"
+      become: yes
+      become_method: sudo
+    - name: enable apache2 site
+      shell: "a2ensite {{site.site_name}}"
+      become: yes
+      become_method: sudo
+      register: a2enstatus
+      changed_when: a2enstatus.stdout == "Enabling Site {{site.site_name}}"
+      notify:
+       - restart apache2 server
+    - name: debug a2enstatus
+      debug:
+        msg: "a2enstatus ::  {{a2enstatus}}"
+      handlers:
+        - name: restart apache2 server
+          service:
+              name: apache2
+              state: restart
+          become: yes
+          become_method: sudo
